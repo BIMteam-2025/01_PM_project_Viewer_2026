@@ -83,7 +83,7 @@ export default function ButtonAppBar() {
                     <IconButton size="large" edge="start" color="inherit"
                         aria-label="menu" 
                         onClick={toggleDrawer(true)}
-                        sx={{ mr: 4, backgroundColor: '#030303' }}
+                        sx={{ mr: 8, backgroundColor: '#030303' }}
                     > <MenuIcon />
 
                     <Drawer open={open} 
@@ -93,10 +93,14 @@ export default function ButtonAppBar() {
                     </Drawer>
 
                     </IconButton>
-                    <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
-                        <img src={DIS_loigo} className="logo" alt="DIS logo" />
 
+                     <img src={DIS_loigo} className="logo" alt="DIS logo" 
+                            style={{ width: '300px', height: '100px', objectFit: 'contain' }}
+                        />
+                    <Typography variant="h6" component="div" sx={{  mr: 8, flexGrow:2, backgroundColor: '#ffffff', color: '#272727' }}> BIM Project viewer
+                       
                     </Typography>
+
                     <Button sx={{
                         backgroundColor: '#000000',
                         color: '#ffffff',
