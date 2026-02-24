@@ -97,7 +97,7 @@ export default function ButtonAppBar() {
                      <img src={DIS_loigo} className="logo" alt="DIS logo" 
                             style={{ width: '300px', height: '100px', objectFit: 'contain' }}
                         />
-                    <Typography variant="h6" component="div" sx={{  mr: 8, flexGrow:2, backgroundColor: '#ffffff', color: '#272727' }}> BIM Project viewer
+                    <Typography variant="h6" component="div" sx={{  mr: 8, flexGrow:2, backgroundColor: '#ffffff', color: '#272727' }}> BIM Project viewer !
                        
                     </Typography>
 
