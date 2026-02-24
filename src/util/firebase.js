@@ -15,14 +15,14 @@ import { connectFirestoreEmulator } from "firebase/firestore";
 // For Firebase JS SDK v7.20.0 and later, measurementId is optional
 const firebaseConfig = {
   apiKey: "AIzaSyCARQA115jjgKq8MFK9h-s8lgztwgrA29g",
-  authDomain: "revit-api-test.firebaseapp.com",
-  databaseURL: "https://revit-api-test-default-rtdb.asia-southeast1.firebasedatabase.app",
-  projectId: "revit-api-test",
-  storageBucket: "revit-api-test.appspot.com",
-  messagingSenderId: "117903387594",
-  appId: "1:117903387594:web:928f2be5cdc3644d76fd33",
-  measurementId: "G-QKW6J1D6LY"
-};
+    authDomain: "revit-api-test.firebaseapp.com",
+      databaseURL: "https://revit-api-test-default-rtdb.asia-southeast1.firebasedatabase.app",
+        projectId: "revit-api-test",
+          storageBucket: "revit-api-test.appspot.com",
+            messagingSenderId: "117903387594",
+              appId: "1:117903387594:web:928f2be5cdc3644d76fd33",
+                measurementId: "G-QKW6J1D6LY"
+                };
 
 
 
