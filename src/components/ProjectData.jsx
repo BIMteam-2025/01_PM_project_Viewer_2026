@@ -8,12 +8,15 @@ export default function ProjectData() {
 
   useEffect(() => {
     const fetchData = async () => {
-      const querySnapshot = await getDocs(collection(db, 'MGA'));
+      const querySnapshot = await getDocs(collection(db, 'ProjectData'));
+
+     
       const projects = [];
       querySnapshot.forEach((doc) => {
         // Assuming the document data is an object where keys are indices of an array-like structure
         Object.values(doc.data()).forEach(project => {
           projects.push(project);
+          console.log('Fetched project:', project);
         });
       });
       setProjectData(projects);
@@ -25,7 +28,7 @@ export default function ProjectData() {
     <div>
       <ButtonAppBar />
       <h1>Project Data</h1>
-      {/* {projectData.map((project, index) => (
+      {projectData.map((project, index) => (
         <div key={index}>
           <h2>{project['Project Name']}</h2>
           <ul>
@@ -47,7 +50,7 @@ export default function ProjectData() {
             <li>automatic scheduled publish: {project['automatic scheduled publish']}</li>
           </ul>
         </div>
-      ))} */}
+      ))}
     </div>
   );
 }

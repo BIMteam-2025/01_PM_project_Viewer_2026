@@ -21,6 +21,8 @@ export default function BasicTable({ collectionName = 'RevitUsers' }) {
     setLoading(true);
     try {
       const querySnapshot = await getDocs(collection(db, collectionName));
+
+      console.log(`Fetched ${querySnapshot.size} documents from ${collectionName}`);
       const data = querySnapshot.docs.map(d => ({ id: d.id, ...d.data() }));
       setRows(data);
       if (data.length > 0) {
