@@ -11,7 +11,7 @@ export default function ProjectList() {
      
       <DataTable/>
 
-       {/* <BasicTable /> */}
+       <BasicTable />
       
 
    

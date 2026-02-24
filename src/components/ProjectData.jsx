@@ -8,7 +8,7 @@ export default function ProjectData() {
 
   useEffect(() => {
     const fetchData = async () => {
-      const querySnapshot = await getDocs(collection(db, 'ProjectData'));
+      const querySnapshot = await getDocs(collection(db, 'MGA'));
       const projects = [];
       querySnapshot.forEach((doc) => {
         // Assuming the document data is an object where keys are indices of an array-like structure
