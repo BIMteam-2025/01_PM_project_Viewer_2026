@@ -1,9 +1,12 @@
 // Import the functions you need from the SDKs you need
 import { initializeApp, getApp, getApps } from "firebase/app";
-import { getAnalytics } from "firebase/analytics";
-import { getStorage } from "firebase/storage";
+// import { getAnalytics } from "firebase/analytics";
+// import { getStorage } from "firebase/storage";
 import { getFirestore } from "firebase/firestore";
-import { getAuth } from "firebase/auth";
+// import { getAuth } from "firebase/auth";
+
+
+import { connectFirestoreEmulator } from "firebase/firestore";
 
 // TODO: Add SDKs for Firebase products that you want to use
 // https://firebase.google.com/docs/web/setup#available-libraries
@@ -22,18 +25,25 @@ const firebaseConfig = {
 };
 
 
+
 const app = !getApps().length ? initializeApp(firebaseConfig) : getApp();
 
 export const db = getFirestore(app);
-export const auth = getAuth(app);
-export const storage = getStorage(app);
+
+// if (window.location.hostname === "localhost") {
+//   connectFirestoreEmulator(db, "localhost", 8080);
+// }
+
+
+// export const auth = getAuth(app);
+// export const storage = getStorage(app);
 
 // analytics may fail in some environments (SSR), so guard it
-let analytics;
-try {
-  analytics = getAnalytics(app);
-} catch (e) {
-  // ignore analytics init errors
-}
+// let analytics;
+// try {
+//   analytics = getAnalytics(app);
+// } catch (e) {
+//   // ignore analytics init errors
+// }
 
-export { analytics };
+// export { analytics };
