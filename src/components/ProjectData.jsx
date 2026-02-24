@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { db } from '../util/firebase';
 import { collection, getDocs } from 'firebase/firestore';
+import ButtonAppBar from './ButtonAppBar';
 
 export default function ProjectData() {
   const [projectData, setProjectData] = useState([]);
@@ -22,8 +23,9 @@ export default function ProjectData() {
 
   return (
     <div>
+      <ButtonAppBar />
       <h1>Project Data</h1>
-      {projectData.map((project, index) => (
+      {/* {projectData.map((project, index) => (
         <div key={index}>
           <h2>{project['Project Name']}</h2>
           <ul>
@@ -45,7 +47,7 @@ export default function ProjectData() {
             <li>automatic scheduled publish: {project['automatic scheduled publish']}</li>
           </ul>
         </div>
-      ))}
+      ))} */}
     </div>
   );
 }

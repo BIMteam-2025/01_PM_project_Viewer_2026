@@ -38,7 +38,8 @@ export default function ButtonAppBar() {
       'Project List': '/',
       'Users list': '/users',
       'Settings': '/settings',
-      'Drafts': '/drafts'
+      'Drafts': '/drafts',
+      'Project Data': '/project-data'
     };
     navigate(routes[text]);
     setOpen(false);
@@ -55,7 +56,7 @@ export default function ButtonAppBar() {
             />
 
         <Divider />
-        {['Project List', 'Users list', 'Settings', 'Drafts'].map((text, index) => (
+        {['Project List', 'Users list', 'Settings', 'Drafts', 'Project Data'].map((text, index) => (
           <ListItem key={text} disablePadding>
             <ListItemButton onClick={() => handleNavigation(text)}>
               <ListItemIcon>
@@ -97,7 +98,7 @@ export default function ButtonAppBar() {
                      <img src={DIS_loigo} className="logo" alt="DIS logo" 
                             style={{ width: '300px', height: '100px', objectFit: 'contain' }}
                         />
-                    <Typography variant="h6" component="div" sx={{  mr: 8, flexGrow:2, backgroundColor: '#ffffff', color: '#272727' }}> BIM Project viewer !
+                    <Typography variant="h6" component="div" sx={{  mr: 8, flexGrow:2, backgroundColor: '#ffffff', color: '#272727' }}> BIM Project viewer
                        
                     </Typography>
 
