@@ -6,7 +6,7 @@
 
 body {
   margin: 0;
-  font-family: 'Quicksand', sans-serif;
+  /* font-family: 'Quicksand', sans-serif; */
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   background: radial-gradient(#8adbe9, #838a87);

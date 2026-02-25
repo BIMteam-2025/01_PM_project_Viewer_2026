@@ -1,6 +1,5 @@
 import ButtonAppBar from '../components/ButtonAppBar'
-import BasicTable from '../components/BasicTable'
-import DataTable from '../components/DataTable';
+
 import Test from '../components/Test1';
 
 
