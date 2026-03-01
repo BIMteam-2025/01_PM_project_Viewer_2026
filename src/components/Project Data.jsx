@@ -119,7 +119,8 @@ export default function Test() {
                         rows={rows}
                         columns={columns}
                         initialState={{
-                            pagination: { paginationModel: { page: 0, pageSize: 15} },
+                            pagination: { paginationModel: { page: 0, pageSize: 15 } },
+                            showToolbar: true,
                             density: 'standard',
                         }}
                         pageSizeOptions={[5, 10, 25, 100]}
