@@ -2,6 +2,9 @@ import React, { useEffect, useState } from 'react';
 import { useLocation, useParams } from 'react-router-dom';
 import { ref, get } from 'firebase/database';
 import { db } from '../util/firebase';
+import ButtonAppBar from './ButtonAppBar';
+import { Paper } from '@mui/material';
+import { DataGrid } from '@mui/x-data-grid';
 
 export default function ProjectPage() {
   const { state } = useLocation();
@@ -41,13 +44,28 @@ export default function ProjectPage() {
   if (error) return <div style={{ color: 'red' }}>{error}</div>;
 
   return (
+
+    
     <div>
+
+        <Paper style={{ padding: '20px', margin: '20px' }}>
+
+      <ButtonAppBar />
+                       
+      <button onClick={() => window.history.back()}>← Back</button>
+
+      {/* <DataGrid
+      rows={rows}
+      columns={columns}
+      
+      />    */}
       <h1>{getField(project, 'Project name', 'projectName', 'project_name') ?? 'Project'}</h1>
       <p>
-        Code: {getField(project, 'Project Code ', 'projectCode', 'project_code', 'code') ?? '—'}
+        Code: {getField(project, 'Project Code ', 'projectCode', 'project_code', 'code') ?? '—not found—'}
       </p>
       {/* Render other fields from `project` as needed */}
       <pre style={{ whiteSpace: 'pre-wrap' }}>{JSON.stringify(project, null, 2)}</pre>
+        </Paper>
     </div>
   );
 }
