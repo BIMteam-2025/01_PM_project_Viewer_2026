@@ -59,6 +59,8 @@ export default function ProjectPage() {
       columns={columns}
       
       />    */}
+
+      // Display project details, using getField to handle different possible field names
       <h1>{getField(project, 'Project name', 'projectName', 'project_name') ?? 'Project'}</h1>
       <p>
         Code: {getField(project, 'Project Code ', 'projectCode', 'project_code', 'code') ?? '—not found—'}
