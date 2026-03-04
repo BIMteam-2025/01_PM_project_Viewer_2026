@@ -131,7 +131,7 @@ export default function Test() {
         );
     }
 
-    const handleNavigation = () => {
+    const handleNavigation = (params) => {
      navigate(`/project/${params.id}`, { state: { row: params.row } });
     // setOpen(false);
   };

@@ -19,7 +19,7 @@ function App() {
         <Route path="/settings" element={<Settings />} />
         <Route path="/drafts" element={<Drafts />} />
         {/* <Route path="/project-data" element={<ProjectData />} /> */}
-         <Route path="/project-page" element={<ProjectPage />} />
+         <Route path="/project/:id" element={<ProjectPage />} />
       </Routes>
     </BrowserRouter>
   );
