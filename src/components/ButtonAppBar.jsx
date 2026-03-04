@@ -56,7 +56,7 @@ export default function ButtonAppBar() {
             />
 
         <Divider />
-        {['Project List', 'Users list', 'Settings', 'Drafts', 'Project Data'].map((text, index) => (
+        {['Project List', 'Users list', 'Settings', 'Drafts', 'Project Dashboard'].map((text, index) => (
           <ListItem key={text} disablePadding>
             <ListItemButton onClick={() => handleNavigation(text)}>
               <ListItemIcon>
