@@ -43,7 +43,9 @@ export default function ProjectPage() {
   }, [id, project]);
 
   const getField = (obj, ...keys) => {
+
     if (!obj) return undefined;
+
     for (const k of keys) {
       if (Object.prototype.hasOwnProperty.call(obj, k) && obj[k] !== undefined) return obj[k];
     }
@@ -119,7 +121,7 @@ export default function ProjectPage() {
     <div>
       <ButtonAppBar />
 
-      <Box sx={{ padding: 3, width: '30%' }}>
+      <Box sx={{ padding: 3, width: '40%' }}>
         {/* <Button onClick={() => window.history.back()} variant="outlined" sx={{
           backgroundColor: '#000000', color: '#f0f0f0', borderRadius: '8px',
           boxShadow: 8,
@@ -133,20 +135,20 @@ export default function ProjectPage() {
           
         <Box sx={{ marginBottom: 1, padding: 2, backgroundColor: '#838a87', borderRadius: 2 }}>
 
-          <Typography variant="h4" sx={{ fontWeight: 600, marginBottom: 1 }}>
+          <Typography variant="h4" sx={{ fontWeight: 600, marginBottom: 1 , color: '#000000'}}>
             Project
           </Typography>
 
           <Typography variant="h4" sx={{ fontWeight: 300, marginBottom: 1 }}>
             Code: {getField(project, 'Project Code ', 'projectCode', 'project_code', 'code') ?? '—not found—'}
           </Typography>
-          <Typography variant="h4" sx={{ fontWeight: 300, marginBottom: 1 }}>
+          <Typography variant="h4" sx={{ fontWeight: 300, marginBottom: 1 , color: '#f0f0f0'}}>
 
-            Name: {getField(project, 'Project name ', 'projectName', 'project_name') ?? '—not found—'}
+            Name: {getField(project, 'Project Name ', 'projectName', 'project name', 'Project name') ?? '—not found—'}
           </Typography>
 
 
-          <Typography variant="body2" sx={{ color: '#f0f0f0' }}>
+          <Typography variant="body2" sx={{ color: '#000000' }}>
             Showing {rows.length} of {rows.length} items.
           </Typography>
 
@@ -177,8 +179,12 @@ export default function ProjectPage() {
           sx={{
             border: 'none',
             '& .MuiDataGrid-columnHeader': {
-              backgroundColor: '#e1e1e1',
-              fontWeight: 600,
+              backgroundColor: '#838a87',  // Blue background
+              color: 'white',             // White text
+              fontWeight: 1000,            // Bolder font
+              fontSize: '20px',           // Larger font
+              textTransform: 'uppercase', // Uppercase text
+              borderBottom: '8px solid #000000', // Darker border
             },
             '& .MuiDataGrid-cell': {
               borderBottom: '2px solid #e2e2e2',

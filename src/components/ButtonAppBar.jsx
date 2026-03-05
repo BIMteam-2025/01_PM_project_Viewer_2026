@@ -23,6 +23,8 @@ import InboxIcon from '@mui/icons-material/MoveToInbox';
 import MailIcon from '@mui/icons-material/Mail';
 import Avatar from '@mui/material/Avatar';
 
+import CloseIcon from '@mui/icons-material/Close';
+
 
 export default function ButtonAppBar() {
 
@@ -49,14 +51,20 @@ export default function ButtonAppBar() {
 
 
   const DrawerList = (
-    <Box sx={{ width: 450 }} role="presentation" onClick={toggleDrawer(false)}>
-      <List>
-
+    <Box sx={{ width: 450 }} role="presentation">
+      {/* Header section with logo and close button */}
+      <Box sx={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', padding: 2 }}>
         <img src={DIS_loigo} className="logo" alt="DIS logo"
           style={{ width: '100px', height: '40px', objectFit: 'contain' }}
         />
+        <IconButton onClick={(e) => { e.stopPropagation(); setOpen(false); }} size="small">
+          <CloseIcon />
+        </IconButton>
+      </Box>
 
-        <Divider />
+      <Divider />
+
+      <List>
         {['Project List', 'Users list', 'Settings', 'Drafts', 'Project Dashboard'].map((text, index) => (
           <ListItem key={text} disablePadding>
             <ListItemButton onClick={() => handleNavigation(text)}>
@@ -68,7 +76,6 @@ export default function ButtonAppBar() {
           </ListItem>
         ))}
       </List>
-      {/* ... rest of drawer */}
     </Box>
   );
 
@@ -120,7 +127,7 @@ export default function ButtonAppBar() {
 
 
 
-          <Avatar sx={{
+          <Avatar onClick={() => console.log('Avatar clicked')} sx={{
             backgroundColor: '#000000', border: '2px solid white', boxShadow: 2, border: '2px solid #1976d2',
             cursor: 'pointer', '&:hover': { boxShadow: 10, transform: 'scale(1.3)',  border: '3px solid #1976d2' },
             transition: 'all 0.2s ease'

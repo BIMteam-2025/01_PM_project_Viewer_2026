@@ -142,10 +142,10 @@ export default function Test() {
     return (
         <Box sx={{ padding: 3, width: '100%' }}>
             <Box sx={{ marginBottom: 3 }}>
-                <Typography variant="h4" sx={{ fontWeight: 600, marginBottom: 1 }}>
+                <Typography variant="h3" sx={{ fontWeight: 600, marginBottom: 1 , color: '#000000'}}>
                     Project Data
                 </Typography>
-                <Typography variant="body2" sx={{ color: '#666' }}>
+                <Typography variant="body2" sx={{ color: '#ffffff' }}>
                     Showing {rows.length} of {rows.length} projects.
                 </Typography>
             </Box>
@@ -175,14 +175,18 @@ export default function Test() {
                         disableSelectionOnClick
                         clipboardCopyCellDelimiter
                         sx={{
-                            border: 'none',
-                            '& .MuiDataGrid-columnHeader': {
-                                backgroundColor: '#e1e1e1',
-                                fontWeight: 600,
-                            },
-                            '& .MuiDataGrid-cell': {
-                                borderBottom: '2px solid #e0e0e0',
-                            },
+                             border: 'none',
+            '& .MuiDataGrid-columnHeader': {
+              backgroundColor: '#838a87',  // Blue background
+              color: 'white',             // White text
+              fontWeight: 1000,            // Bolder font
+              fontSize: '20px',           // Larger font
+              textTransform: 'uppercase', // Uppercase text
+              borderBottom: '8px solid #000000', // Darker border
+            },
+            '& .MuiDataGrid-cell': {
+              borderBottom: '2px solid #e2e2e2',
+            },
                         }}
                     />
                 </Paper>
