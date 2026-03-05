@@ -112,7 +112,7 @@ export default function ProjectPage() {
               fontWeight: 600,
             },
             '& .MuiDataGrid-cell': {
-              borderBottom: '2px solid #e0e0e0',
+              borderBottom: '2px solid #e7cece',
             },
           }}
         />
