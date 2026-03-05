@@ -9,6 +9,7 @@ import Typography from '@mui/material/Typography';
 import { useNavigate } from 'react-router-dom';
 
 
+
 export default function Test() {
     const [DIS_Projects, setDIS_Projects] = useState(null);
     const [loading, setLoading] = useState(true);
@@ -136,6 +137,8 @@ export default function Test() {
     // setOpen(false);
   };
 
+ 
+
     return (
         <Box sx={{ padding: 3, width: '100%' }}>
             <Box sx={{ marginBottom: 3 }}>
@@ -154,8 +157,9 @@ export default function Test() {
             )}
             
             {rows.length > 0 ? (
-                <Paper sx={{ height: 1000, width: '100%', boxShadow: 8, borderRadius: 15 }}>
+                <Paper sx={{ height: 1000, width: '100%', boxShadow: 8, borderRadius: 15 }}  elevation={24}>
                     <DataGrid
+                     showToolbar
                         rows={rows}
                         columns={columns}
 
