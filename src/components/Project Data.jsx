@@ -154,7 +154,7 @@ export default function Test() {
             )}
             
             {rows.length > 0 ? (
-                <Paper sx={{ height: 800, width: '100%', boxShadow: 5, borderRadius: 2 }}>
+                <Paper sx={{ height: 1000, width: '100%', boxShadow: 8, borderRadius: 15 }}>
                     <DataGrid
                         rows={rows}
                         columns={columns}
@@ -166,7 +166,7 @@ export default function Test() {
                             showToolbar: true,
                             density: 'standard',
                         }}
-                        pageSizeOptions={[5, 10, 25, 100]}
+                        pageSizeOptions={[ 10, 25, 100]}
                         checkboxSelection={false}
                         disableSelectionOnClick
                         clipboardCopyCellDelimiter
