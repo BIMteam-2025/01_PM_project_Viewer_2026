@@ -12,9 +12,6 @@ import Icon from '@mui/icons-material/ArrowBackIosNew';
 import TextField from '@mui/material/TextField';
 import SaveAsIcon from '@mui/icons-material/SaveAs';
 
-
-
-
 export default function ProjectPage() {
   const { state } = useLocation();
   const { id } = useParams();
@@ -54,30 +51,21 @@ export default function ProjectPage() {
 
   const columns = [
     { field: 'field', headerName: 'Field', width: 400 },
-    { 
-      field: 'value', 
-      headerName: 'Value', 
-      width: 400,
-      renderCell: (params) => 
+    {
+      field: 'value', headerName: 'Value', width: 400,
+      renderCell: (params) =>
         editingId === params.id ? (
-          <TextField
-            value={params.value}
-            onChange={(e) => {
-              const newValue = e.target.value;
-              setProject(prev => ({
-                ...prev,
-                [params.id]: newValue
-              }));
-            }}
+          <TextField value={params.value} onChange={(e) => {
+            const newValue = e.target.value;
+            setProject(prev => ({
+              ...prev, [params.id]: newValue
+            }));
+          }}
             onBlur={() => setEditingId(null)}
             onKeyDown={(e) => {
-              if (e.key === 'Enter') {
-                setEditingId(null);
-              }
+              if (e.key === 'Enter') { setEditingId(null); }
             }}
-            autoFocus
-            size="small"
-            fullWidth
+            autoFocus size="small" fullWidth
           />
         ) : (
           <div onClick={() => setEditingId(params.id)} style={{ cursor: 'pointer', width: '100%', height: '100%', display: 'flex', alignItems: 'center' }}>
@@ -112,16 +100,11 @@ export default function ProjectPage() {
   if (loading) return <div>Loading project…</div>;
   if (error) return <div style={{ color: 'red' }}>{error}</div>;
 
-  
-
-
   return (
-
-
     <div>
       <ButtonAppBar />
 
-      <Box sx={{ padding: 3, width: '40%' }}>
+      <Box sx={{ padding: 3, width: '40%', margin: '30px', boxShadow: 4, borderRadius: 3, border: '1px solid #000000' }}>
         {/* <Button onClick={() => window.history.back()} variant="outlined" sx={{
           backgroundColor: '#000000', color: '#f0f0f0', borderRadius: '8px',
           boxShadow: 8,
@@ -132,21 +115,19 @@ export default function ProjectPage() {
         }} size="small"
           startIcon={<Icon />}>Back</Button> */}
 
-          
-        <Box sx={{ marginBottom: 1, padding: 2, backgroundColor: '#838a87', borderRadius: 2 }}>
+        <Box sx={{ marginBottom: 1, padding: 2, backgroundColor: '#838a87', borderRadius: 2, border: '1px solid #000000' }}>
 
-          <Typography variant="h4" sx={{ fontWeight: 600, marginBottom: 1 , color: '#000000'}}>
+          <Typography variant="h4" sx={{ fontWeight: 600, marginBottom: 1, color: '#000000' }}>
             Project
           </Typography>
 
           <Typography variant="h4" sx={{ fontWeight: 300, marginBottom: 1 }}>
             Code: {getField(project, 'Project Code ', 'projectCode', 'project_code', 'code') ?? '—not found—'}
           </Typography>
-          <Typography variant="h4" sx={{ fontWeight: 300, marginBottom: 1 , color: '#f0f0f0'}}>
+          <Typography variant="h4" sx={{ fontWeight: 300, marginBottom: 1, color: '#f0f0f0' }}>
 
             Name: {getField(project, 'Project Name ', 'projectName', 'project name', 'Project name') ?? '—not found—'}
           </Typography>
-
 
           <Typography variant="body2" sx={{ color: '#000000' }}>
             Showing {rows.length} of {rows.length} items.
@@ -155,11 +136,9 @@ export default function ProjectPage() {
         </Box>
       </Box>
 
+      <Paper style={{ padding: '20px', margin: '30px', boxShadow: 1, borderRadius: 15, border: '1px solid #000000' }} elevation={24}>
 
-
-      <Paper style={{ padding: '20px', margin: '30px', boxShadow: 1, borderRadius: 15 }} elevation={24}>
-
-         <Button onClick={handleSave} variant="outlined" sx={{
+        <Button onClick={handleSave} variant="outlined" sx={{
           backgroundColor: '#000000', color: '#f0f0f0', borderRadius: '8px',
           boxShadow: 8,
           '&:hover': {
@@ -168,9 +147,10 @@ export default function ProjectPage() {
           }
         }} size="small"
           startIcon={<SaveAsIcon />}>Save Changes</Button>
-      
+
         <DataGrid
-           showToolbar
+
+          showToolbar
           rows={rows}
           columns={columns}
           pageSize={100}

@@ -21,6 +21,11 @@ import ListItemIcon from '@mui/material/ListItemIcon';
 import ListItemText from '@mui/material/ListItemText';
 import InboxIcon from '@mui/icons-material/MoveToInbox';
 import MailIcon from '@mui/icons-material/Mail';
+import FolderIcon from '@mui/icons-material/Folder';
+import PeopleIcon from '@mui/icons-material/People';
+import SettingsIcon from '@mui/icons-material/Settings';
+import DraftsIcon from '@mui/icons-material/Drafts';
+import DashboardIcon from '@mui/icons-material/Dashboard';
 import Avatar from '@mui/material/Avatar';
 
 import CloseIcon from '@mui/icons-material/Close';
@@ -40,12 +45,20 @@ export default function ButtonAppBar() {
     const routes = {
       'Project List': '/',
       'Users list': '/users',
-      'Settings': '/settings',
+      'BIM Settings': '/BIM settings',
       'Drafts': '/drafts',
       'Project Data': '/project-data'
     };
     navigate(routes[text]);
     setOpen(false);
+  };
+
+  const iconMap = {
+    'Project List': <FolderIcon />,
+    'Users list': <PeopleIcon />,
+    'BIM Settings': <SettingsIcon />,
+    'Drafts': <DraftsIcon />,
+    'Project Dashboard': <DashboardIcon />,
   };
 
 
@@ -55,7 +68,7 @@ export default function ButtonAppBar() {
       {/* Header section with logo and close button */}
       <Box sx={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', padding: 2 }}>
         <img src={DIS_loigo} className="logo" alt="DIS logo"
-          style={{ width: '100px', height: '40px', objectFit: 'contain' }}
+          style={{mr: 8,  width: '100px', height: '40px', objectFit: 'contain' }}
         />
         <IconButton onClick={(e) => { e.stopPropagation(); setOpen(false); }} size="small">
           <CloseIcon />
@@ -65,11 +78,11 @@ export default function ButtonAppBar() {
       <Divider />
 
       <List>
-        {['Project List', 'Users list', 'Settings', 'Drafts', 'Project Dashboard'].map((text, index) => (
+        {['Project List', 'Users list', 'BIM Settings', 'Drafts', 'Project Dashboard'].map((text, index) => (
           <ListItem key={text} disablePadding>
             <ListItemButton onClick={() => handleNavigation(text)}>
               <ListItemIcon>
-                {index % 2 === 0 ? <InboxIcon /> : <MailIcon />}
+                {iconMap[text]}
               </ListItemIcon>
               <ListItemText primary={text} />
             </ListItemButton>

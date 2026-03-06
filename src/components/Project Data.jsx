@@ -140,8 +140,8 @@ export default function Test() {
  
 
     return (
-        <Box sx={{ padding: 3, width: '100%' }}>
-            <Box sx={{ marginBottom: 3 }}>
+        <Box sx={{ padding: 3 }}>
+            <Box sx={{ marginBottom: 3 , width: '40%'}}>
                 <Typography variant="h3" sx={{ fontWeight: 600, marginBottom: 1 , color: '#000000'}}>
                     Project Data
                 </Typography>
@@ -157,8 +157,9 @@ export default function Test() {
             )}
             
             {rows.length > 0 ? (
-                <Paper sx={{ height: 1000, width: '100%', boxShadow: 8, borderRadius: 15 }}  elevation={24}>
+                <Paper sx={{padding: '20px', margin: '30px', boxShadow: 1, borderRadius: 3, border: '1px solid #000000'}}  elevation={24}>
                     <DataGrid
+                        
                      showToolbar
                         rows={rows}
                         columns={columns}

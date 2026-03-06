@@ -2,7 +2,7 @@ import { BrowserRouter, Routes, Route } from 'react-router-dom';
 
 
 import ProjectList from './pages/ProjectList';
-import UsersList from './pages/UsersList';
+import UsersList from './pages/UserList';
 import Settings from './pages/Settings';
 import Drafts from './pages/Drafts';
 import ProjectPage from './components/ProjectPage';
