@@ -27,8 +27,23 @@ import SettingsIcon from '@mui/icons-material/Settings';
 import DraftsIcon from '@mui/icons-material/Drafts';
 import DashboardIcon from '@mui/icons-material/Dashboard';
 import Avatar from '@mui/material/Avatar';
-
+import Modal from '@mui/material/Modal';
 import CloseIcon from '@mui/icons-material/Close';
+
+
+
+
+const style = {
+  position: 'absolute',
+  top: '50%',
+  left: '50%',
+  transform: 'translate(-50%, -50%)',
+  width: 900,
+  bgcolor: 'background.paper',
+  border: '2px solid #000',
+  boxShadow: 24,
+  p: 8,
+};
 
 
 export default function ButtonAppBar() {
@@ -36,6 +51,9 @@ export default function ButtonAppBar() {
 
   const navigate = useNavigate();
   const [open, setOpen] = React.useState(false);
+  const [openModal, setOpenModal] = React.useState(false);
+  const handleOpen = () => setOpenModal(true);
+  const handleClose = () => setOpenModal(false);
 
   const toggleDrawer = (newOpen) => () => {
     setOpen(newOpen);
@@ -47,7 +65,8 @@ export default function ButtonAppBar() {
       'Users list': '/users',
       'BIM Settings': '/BIM settings',
       'Drafts': '/drafts',
-      'Project Data': '/project-data'
+      'Project Data': '/project-data',
+      'Tasks': '/Tasks'
     };
     navigate(routes[text]);
     setOpen(false);
@@ -59,6 +78,7 @@ export default function ButtonAppBar() {
     'BIM Settings': <SettingsIcon />,
     'Drafts': <DraftsIcon />,
     'Project Dashboard': <DashboardIcon />,
+
   };
 
 
@@ -68,7 +88,7 @@ export default function ButtonAppBar() {
       {/* Header section with logo and close button */}
       <Box sx={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', padding: 2 }}>
         <img src={DIS_loigo} className="logo" alt="DIS logo"
-          style={{mr: 8,  width: '100px', height: '40px', objectFit: 'contain' }}
+          style={{ mr: 8, width: '100px', height: '40px', objectFit: 'contain' }}
         />
         <IconButton onClick={(e) => { e.stopPropagation(); setOpen(false); }} size="small">
           <CloseIcon />
@@ -78,7 +98,7 @@ export default function ButtonAppBar() {
       <Divider />
 
       <List>
-        {['Project List', 'Users list', 'BIM Settings', 'Drafts', 'Project Dashboard'].map((text, index) => (
+        {['Project List', 'Users list', 'BIM Settings', 'Drafts', 'Project Dashboard', 'Tasks'].map((text, index) => (
           <ListItem key={text} disablePadding>
             <ListItemButton onClick={() => handleNavigation(text)}>
               <ListItemIcon>
@@ -114,8 +134,6 @@ export default function ButtonAppBar() {
           </IconButton>
 
 
-          
-
           <img src={DIS_loigo} className="logo" alt="DIS logo"
             style={{ width: '300px', height: '100px', objectFit: 'contain' }}
           />
@@ -124,8 +142,8 @@ export default function ButtonAppBar() {
           </Typography>
 
 
-          
-          <Box  sx={{ alignItems: 'flex-start', marginLeft: 1, mr: 8, '&:hover': { boxShadow: 3, transform: 'scale(1.05)' }, transition: 'all 0.2s ease' }}>
+
+          <Box sx={{ alignItems: 'flex-start', marginLeft: 1, mr: 8, '&:hover': { boxShadow: 3, transform: 'scale(1.05)' }, transition: 'all 0.2s ease' }}>
             <Button sx={{
               backgroundColor: '#000000',
               color: '#ffffff',
@@ -140,12 +158,12 @@ export default function ButtonAppBar() {
 
 
 
-          <Avatar onClick={() => console.log('Avatar clicked')} sx={{
+          <Avatar onClick={handleOpen} sx={{
             backgroundColor: '#000000', border: '2px solid white', boxShadow: 2, border: '2px solid #1976d2',
-            cursor: 'pointer', '&:hover': { boxShadow: 10, transform: 'scale(1.3)',  border: '3px solid #1976d2' },
+            cursor: 'pointer', '&:hover': { boxShadow: 10, transform: 'scale(1.3)', border: '3px solid #1976d2' },
             transition: 'all 0.2s ease'
           }}
-             />
+          />
 
           <Box sx={{ display: 'flex', flexDirection: 'column', alignItems: 'flex-start', marginLeft: 1 }}>
             <Typography variant="body2" sx={{ color: '#666', fontSize: '0.8rem' }}>
@@ -155,6 +173,22 @@ export default function ButtonAppBar() {
               Admin
             </Typography>
           </Box>
+
+          <Modal
+            open={openModal}
+            onClose={handleClose}
+            aria-labelledby="modal-modal-title"
+            aria-describedby="modal-modal-description"
+          >
+            <Box sx={style}>
+              <Typography id="modal-modal-title" variant="h6" component="h2">
+                Text in a modal
+              </Typography>
+              <Typography id="modal-modal-description" sx={{ mt: 2 }}>
+                Duis mollis, est non commodo luctus, nisi erat porttitor ligula.
+              </Typography>
+            </Box>
+          </Modal>
 
 
         </Toolbar>

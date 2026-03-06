@@ -6,6 +6,8 @@ import UsersList from './pages/UserList';
 import Settings from './pages/Settings';
 import Drafts from './pages/Drafts';
 import ProjectPage from './components/ProjectPage';
+import Tasks from './pages/Tasks';
+
 // import ProjectData from './components/ProjectData';
 
 
@@ -19,7 +21,8 @@ function App() {
         <Route path="/settings" element={<Settings />} />
         <Route path="/drafts" element={<Drafts />} />
         {/* <Route path="/project-data" element={<ProjectData />} /> */}
-         <Route path="/project/:id" element={<ProjectPage />} />
+        <Route path="/project/:id" element={<ProjectPage />} />
+        <Route path="/Tasks" element={<Tasks />} />
       </Routes>
     </BrowserRouter>
   );

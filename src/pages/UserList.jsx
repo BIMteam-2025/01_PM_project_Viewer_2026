@@ -118,9 +118,9 @@ export default function UserList() {
             <ButtonAppBar />
 
 
-            <Box sx={{ padding: 3 }}>
+            <Box sx={{   padding: 3}}>
 
-                <Box sx={{ width: '40%',marginBottom: 1, padding: 2, backgroundColor: '#838a87', borderRadius: 2, border: '1px solid #000000' }}>
+                <Box sx={{ width: '40%',marginBottom: 1, padding: 2, backgroundColor: '#838a87', borderRadius: 2, border: '1px solid #000000', boxShadow: 4 }}>
 
                     <Typography variant="h4" sx={{ fontWeight: 600, marginBottom: 1, color: '#ffffff' }}>
                         DIS Users Page
